@@ -1,64 +1,74 @@
 package comp.design.parkingsystem;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+//import java.util.Currency;
 
 public final class Money implements Serializable {
     private static final long serialVersionUID = 1L;
-
-    private final long pennies;
+	private static final BigDecimal oneHundred = new BigDecimal(100);
 
     public static final Money ZERO = new Money();
+
+    public BigDecimal currencyUnit;
+
+    // TODO: If we support multiple currencies.
+    //public Currency currency;
 
     public Money() {
         this(0L);
     }
 
-    public Money(double dollars) {
-        this((long)(Math.round(dollars * 100)));
+
+    public Money(BigDecimal amount) {
+        currencyUnit = amount;
     }
 
     private Money(long pennies) {
-        this.pennies = pennies;
+        currencyUnit = new BigDecimal(pennies);
     }
 
     public double toDouble() {
-        return pennies / 100.0;
+        return currencyUnit.doubleValue();
     }
 
     public static Money fromString(String s) {
         // take "$50.23" and make a money object from it.
+    	// TODO: Parse other currencies.
         s = s.trim();
         if (s.charAt(0) == '$') {
             s = s.substring(1);
         }
-        return new Money(Double.parseDouble(s));
+        return new Money(new BigDecimal(Double.parseDouble(s) * 100));
     }
 
     public Money add(Money other) {
-        return new Money(this.pennies + other.pennies);
+        return new Money(currencyUnit.add(other.currencyUnit));
     }
 
     // DRY principle -- don't repeat yourself. Copy-and-paste
     // with edits is a code smell.
-    public Money sub(Money other) {
+    public Money subtract(Money other) {
         return this.add(other.negate());
     }
 
     public Money negate() {
-        return new Money(-this.pennies);
+        return new Money(currencyUnit.negate());
     }
 
-    public Money mul(double factor) {
-        return new Money(this.pennies * factor / 100);
+    public Money multiply(double factor) {
+        return new Money(currencyUnit.multiply(new BigDecimal(factor)));
     }
 
-    public Money div(double factor) {
-        return this.mul(1 / factor);
+    public Money divide(double divisor) {
+        return new Money(currencyUnit.divide(new BigDecimal(divisor)));
     }
 
     @Override
     public String toString() {
-        return String.format("$%d.%02d", pennies / 100, Math.abs(pennies % 100));
+        return String.format("$%d.%02d",
+        		currencyUnit.divide(oneHundred),
+        		currencyUnit.remainder(oneHundred));
     }
 
     @Override
@@ -70,6 +80,6 @@ public final class Money implements Serializable {
     }
 
     public boolean equals(Money other) {
-        return this.pennies == other.pennies;
+        return this.currencyUnit == other.currencyUnit;
     }
 }
