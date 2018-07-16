@@ -1,7 +1,7 @@
 package comp.design.parkingsystem;
 
 import java.math.BigInteger;
-import java.sql.*;
+import java.util.Calendar;
 
 public class ParkingSpot extends ParkingLotDatabase {
 

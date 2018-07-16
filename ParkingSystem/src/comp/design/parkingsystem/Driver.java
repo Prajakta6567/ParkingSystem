@@ -27,12 +27,6 @@ public class Driver {
 		
 	}
 	
-	/*	Purpose:	Have the customer check into his reservation
-	 * 	Input:		current time
-	 * 	Output:		True if successful check in, false if the check in fails.
-	 */
-	
-	//	Purpose:	simply returns the parking spot of a car
 	public Driver getCarLocation() {
 		return location;
 	}

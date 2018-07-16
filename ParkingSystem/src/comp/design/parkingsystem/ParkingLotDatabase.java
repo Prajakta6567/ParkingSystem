@@ -1,5 +1,6 @@
 package comp.design.parkingsystem;
 
+import java.util.Calendar;
 import java.util.Vector;
 import java.sql.*;
 
@@ -47,7 +48,7 @@ public class ParkingLotDatabase {
 	public Vector<ParkingLot> getParkingLotsNear(GeoLocation coords, double radius) {return new Vector<ParkingLot>(); }
 	
 	/*
-	 * Purpose: Close connection to database
+	 * Close connection to database
 	 */
 	public static boolean closeDatabase() throws ClassNotFoundException, SQLException{
 		rs.close();
