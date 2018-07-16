@@ -25,5 +25,9 @@ public class ParkingSystem {
 	public Session authenticate(Credentials credentials) { return new Session(); }
 	public void unauthenticate(Session s) {}
 	public Vector<ParkingSpot> getParkingSpotsNear(GeoLocation coords, double radius) {return new Vector<ParkingSpot>(); }
+	
+	public void selectParking(int spotId) {
+		// select the parking from all the available spots
+	}
 
 }
