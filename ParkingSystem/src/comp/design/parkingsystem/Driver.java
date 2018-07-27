@@ -1,5 +1,7 @@
 package comp.design.parkingsystem;
 
+import comp.design.parkingsystem.ParkingSystem.GeoLocation;
+
 public class Driver {
 
 	private String custName;
@@ -10,7 +12,7 @@ public class Driver {
 	private String carModel;
 	private int carYear;
 	private int currentReservation;
-	public Driver location;
+	public GeoLocation location;
 	
 	/**
 	 * Constructor
@@ -27,8 +29,9 @@ public class Driver {
 		
 	}
 	
-	public Driver getCarLocation() {
+	public GeoLocation getCarLocation() {
 		return location;
+		
 	}
 	
 	public void setCurrentReservationID(int id){

@@ -7,14 +7,11 @@ import java.util.Calendar;
 
 public class Transaction {
 
-	BigInteger id;
+	private BigInteger transactionId;
 	public Date time;
-	public Money amount;
 	public double tax;
-	public BigInteger
-		accountNumber,
-		routingNumber;
-
+	public Money amount;
+	
 	public Money total () { return new Money(); }
 	
 	private static final float RATE = 4; //Dollars per hour
@@ -41,7 +38,6 @@ public class Transaction {
 		
 		float earlyTime = getTimeDifference(actualTimeIn,reservedTimeIn);
 		float reservedTime = getTimeDifference(reservedTimeIn,reservedTimeOut);
-		float extraTime	=	getTimeDifference(reservedTimeOut,actualTimeOut);
 		
 		float totalCost = (RATE * earlyTime) + (RATE * reservedTime);
 		
@@ -52,14 +48,13 @@ public class Transaction {
 		return totalCost;
 	}
 	
-	public static float chargeCustomer(Reservation r) throws ClassNotFoundException, SQLException{
+	public static float total(Reservation r) throws ClassNotFoundException, SQLException{
 		// Calculate price
 		double price = Transaction.getPrice(r);
 		
-		// update Customer Database
+		// update Database
 		
 		/*	update Reservation Object
-			update Reservation Database
 		 */
 		return (float) price;
 	}

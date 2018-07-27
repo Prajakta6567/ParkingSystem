@@ -1,7 +1,14 @@
 package comp.design.parkingsystem;
 
+import java.math.BigInteger;
+
 public class PaymentService {
 
+	private String cardNumber;
+	private BigInteger
+	accountNumber,
+	routingNumber;
+	
 	public class CreditCard {
 	}
 
@@ -12,7 +19,8 @@ public class PaymentService {
 		return false;
 	}
 
-	public Transaction makePayment(Reservation reservation, PaymentInformation paymentInformation) {
+	public Transaction makePayment(Reservation reservation, 
+						PaymentInformation paymentInformation) {
 		return new Transaction();
 	}
 }
