@@ -40,8 +40,7 @@ public class Transaction {
 
 		float earlyTime = getTimeDifference(actualTimeIn, reservedTimeIn);
 		float reservedTime = getTimeDifference(reservedTimeIn, reservedTimeOut);
-		float extraTime = getTimeDifference(reservedTimeOut, actualTimeOut);
-
+		
 		float totalCost = (RATE * earlyTime) + (RATE * reservedTime);
 
 		if (totalCost > MAX_DAY) {

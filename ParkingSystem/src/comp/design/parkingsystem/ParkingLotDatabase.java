@@ -25,7 +25,7 @@ public class ParkingLotDatabase {
 	protected static ResultSet rs = null;
 	protected static int spotsPerFloor = 20;
 	protected static int numFloors = 3;
-	protected static int numParkingSpots = numFloors * spotsPerFloor;
+	public static int numParkingSpots = numFloors * spotsPerFloor;
 	private String garageAddresses;
 	private int phoneNumber;
 	private Calendar hours;
