@@ -1,22 +1,25 @@
 package comp.design.parkingsystem;
 
 import java.math.BigInteger;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Reservation implements Comparable<Reservation> {
 
+	public BigInteger id;
+	public Date arrival, departure;
+	public Driver driver;
+	public Transaction transaction;
 	private int reservationID;
 	private int customerID;
+	private int parkingId;
 	private Calendar reservationTimeIn;
 	private Calendar reservationTimeOut;
 	private Calendar actualTimeIn;
 	private Calendar actualTimeOut;
-	public Driver driver;
-	public Transaction transaction;
-	public BigInteger id;
-
+	
 	/**
 	 * 
 	 * @param resId
@@ -53,7 +56,7 @@ public class Reservation implements Comparable<Reservation> {
 	 * @throws ClassNotFoundException
 	 * @throws SQLException
 	 */
-	public void reserveParking(int custId, int resID, Calendar start, Calendar finish)
+	public void reserveParking(int parkingId, int resID, Calendar start, Calendar finish)
 						throws ClassNotFoundException, SQLException {
 		
 	}
@@ -90,7 +93,9 @@ public class Reservation implements Comparable<Reservation> {
 	public int getCustomerID(){
 		return customerID;
 	}
-	
+	public int getParkingId(){
+		return parkingId;
+	}
 	public void setActualTimeIn(Calendar c){
 		actualTimeIn = c;
 	}

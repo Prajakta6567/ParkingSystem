@@ -1,12 +1,16 @@
 package comp.design.parkingsystem;
 
-import comp.design.parkingsystem.ParkingSystem.GeoLocation;
-
+/**
+ *
+ * This represents an owner/vehicle object that combines information about a
+ * driver's basic information and the driver's vehicle.
+ *
+ */
 public class Driver {
 
-	private String custName;
+	private String name;
 	private String LicensePlate;
-	private int custId;
+	private int id;
 	private int phoneNumber;
 	private String carMake;
 	private String carModel;
@@ -14,40 +18,39 @@ public class Driver {
 	private int currentReservation;
 	public GeoLocation location;
 	
+	
 	/**
 	 * Constructor
-	 * @param cName
+	 *
+	 * @param name
 	 * @param lPlate
-	 * @param custId
-	 * @param phNo
+	 * @param id
+	 * @param phone
 	 * @param carMake
 	 * @param carModel
 	 * @param carYear
 	 */
-	public Driver( String cName, String lPlate, int custId, 
-				int phNo, String carMake, String carModel, int carYear, int curReserve) {
-		
+	public Driver(String name, String lPlate, int id, long phone, String carMake, String carModel, int carYear) {
 	}
 	
 	public GeoLocation getCarLocation() {
 		return location;
-		
 	}
-	
-	public void setCurrentReservationID(int id){
-		currentReservation=id;
+
+	public void setCurrentReservationID(int id) {
+		currentReservation = id;
 	}
-	
-	public int getCurrentReservationID(){
+
+	public int getCurrentReservationID() {
 		return currentReservation;
 	}
-	
-	/**Functions that Return Customer Values*/
-	public int getCustomerID(){
-		return custId;
+
+	public int getID() {
+		return id;
 	}
-	public String getCustomerName(){
-		return custName;
+
+	public String getName() {
+		return name;
 	}
 
 	public String getLicensePlate() {
@@ -89,8 +92,5 @@ public class Driver {
 	public void setCarYear(int carYear) {
 		this.carYear = carYear;
 	}
-	
-	
-	
-	
+
 }

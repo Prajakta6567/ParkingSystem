@@ -1,13 +1,6 @@
 package comp.design.parkingsystem;
 
-import java.math.BigInteger;
-
 public class PaymentService {
-
-	private String cardNumber;
-	private BigInteger
-	accountNumber,
-	routingNumber;
 	
 	public class CreditCard {
 	}
