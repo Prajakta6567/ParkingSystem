@@ -6,7 +6,9 @@ import org.junit.runner.notification.Failure;
 
 public class TestRunner {
 	public static void main(String[] args) {
-		Result result = JUnitCore.runClasses(TestDriver.class);
+
+		Result result = JUnitCore.runClasses(DriverTest.class, ParkingLotDatabaseTest.class, ReservationTest.class,
+				TransactionTest.class);
 
 		for (Failure failure : result.getFailures()) {
 			System.err.println(failure.toString());

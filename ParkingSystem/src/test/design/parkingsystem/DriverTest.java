@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import comp.design.parkingsystem.Driver;
 
-public class TestDriver {
+public class DriverTest {
 
 	@Test
 	public void testDriver() {
