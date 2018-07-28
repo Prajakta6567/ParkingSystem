@@ -2,7 +2,6 @@ package comp.design.parkingsystem;
 
 import java.math.BigInteger;
 import java.sql.Date;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -19,9 +18,9 @@ public class Reservation implements Comparable<Reservation> {
 	private Calendar reservationTimeOut;
 	private Calendar actualTimeIn;
 	private Calendar actualTimeOut;
-	
+
 	/**
-	 * 
+	 *
 	 * @param resId
 	 * @param custId
 	 * @param spotId
@@ -30,52 +29,37 @@ public class Reservation implements Comparable<Reservation> {
 	 * @param ain
 	 * @param aout
 	 */
-	public Reservation(int resId, int custId, int spotId, Calendar in,
-			Calendar out, Calendar ain, Calendar aout) {
+	public Reservation(int resId, int custId, int spotId, Calendar in, Calendar out, Calendar ain, Calendar aout) {
 
 	}
 
 	public int compareTo(Reservation reserve) {
-		if (reservationTimeIn.before(reserve.reservationTimeIn)){
+		if (reservationTimeIn.before(reserve.reservationTimeIn)) {
 			return -1;
-		}
-		else if (reservationTimeIn.after(reserve.reservationTimeIn)){
+		} else if (reservationTimeIn.after(reserve.reservationTimeIn)) {
 			return 1;
-		}
-		else{
+		} else {
 			return 0;
 		}
 	}
-	
+
 	/**
-	 * Make a reservation
-	 * 	Output:	Reservation Object if successful
-	 * no parking spots: -1 for reservationID
-	 * too many reservation: -2 for reservationID
-	 * else make reservation
-	 * @throws ClassNotFoundException
-	 * @throws SQLException
-	 */
-	public void reserveParking(int parkingId, int resID, Calendar start, Calendar finish)
-						throws ClassNotFoundException, SQLException {
-		
-	}
-	/*
 	 * When a driver has confirmed the reservation, this function is called
 	 */
-	public void confirmArrival(Calendar in) {}
-	/*
+	public void confirmArrival(Calendar in) {
+	}
+
+	/**
 	 * Call when car is leaving
 	 */
-	public void confirmDeparture() {}
-	
-	/*purpose: returns ArrayList of Calendar objects:
-	 * 1	reservationTimeIn;
-	 * 2	reservationTimeOut
-	 * 3	actualTimeIn
-	 * 4	actualTimeOut
-	 * 	*/
-	public ArrayList<Calendar> reservationInformation(){
+	public void confirmDeparture() {
+	}
+
+	/**
+	 * purpose: returns ArrayList of Calendar objects: 1 reservationTimeIn; 2
+	 * reservationTimeOut 3 actualTimeIn 4 actualTimeOut
+	 */
+	public ArrayList<Calendar> reservationInformation() {
 		ArrayList<Calendar> output = new ArrayList<Calendar>();
 		output.add(reservationTimeIn);
 		output.add(reservationTimeOut);
@@ -83,25 +67,28 @@ public class Reservation implements Comparable<Reservation> {
 		output.add(actualTimeOut);
 		return output;
 	}
-	
+
 	/*
 	 * Helper Functions
 	 */
-	public int getReservationID(){
+	public int getReservationID() {
 		return reservationID;
 	}
-	public int getCustomerID(){
+
+	public int getCustomerID() {
 		return customerID;
 	}
-	public int getParkingId(){
+
+	public int getParkingId() {
 		return parkingId;
 	}
-	public void setActualTimeIn(Calendar c){
+
+	public void setActualTimeIn(Calendar c) {
 		actualTimeIn = c;
 	}
-	public void setActualTimeOut(Calendar c){
+
+	public void setActualTimeOut(Calendar c) {
 		actualTimeOut = c;
 	}
-	
 
 }

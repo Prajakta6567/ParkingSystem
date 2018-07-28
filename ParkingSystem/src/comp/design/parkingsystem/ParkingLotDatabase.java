@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Calendar;
 import java.util.Vector;
+
 /**
  *
  * The ParkingLotDatabase is a specialized class used to query information about
@@ -17,7 +18,6 @@ import java.util.Vector;
  * radius around a given point.
  *
  */
-
 public class ParkingLotDatabase {
 
 	protected static Connection con = null;
@@ -58,6 +58,7 @@ public class ParkingLotDatabase {
 	public Vector<ParkingLot> getParkingLotsNear(GeoLocation coords, double radius) {
 		return new Vector<ParkingLot>();
 	}
+
 	/*
 	 * Close connection to database
 	 */
@@ -77,19 +78,21 @@ public class ParkingLotDatabase {
 	}
 
 	/**
-	 * Reserves a parking space in the database
+	 * Make a reservation Output: Reservation Object if successful no parking spots:
+	 * -1 for reservationID too many reservation: -2 for reservationID else make
+	 * reservation
 	 *
-	 * @param pSpot
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 *
+	 * @param parkingSpotId
 	 * @param resID
 	 * @param start
 	 * @param finish
-	 * @return
 	 */
-	public static boolean reserveParkingSpace(int pSpot, int resID, Calendar start, Calendar finish) {
-		// For a given parking space and time period, the ParkingSystem's database
-		// is either made unavailable or opened up for other reservations to be made
-		// or not made at this time
-		return true;
+	public static void reserveParking(int parkingSpotId, int resID, Calendar start, Calendar finish)
+			throws ClassNotFoundException, SQLException {
+
 	}
 
 	/**
